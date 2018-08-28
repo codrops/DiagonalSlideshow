@@ -446,6 +446,14 @@
                 this.nextSlide.setRight(this.isContentOpen);
                 this.prevSlide.setLeft(this.isContentOpen);
                 this.currentSlide.setCurrent(this.isContentOpen);
+
+                const decorect = this.DOM.deco.getBoundingClientRect();
+                TweenMax.set(this.DOM.deco, {
+                    scaleX: winsize.width/decorect.width,
+                    scaleY: winsize.height/decorect.height,
+                    x: -20,
+                    y: 20
+                });
             };
             window.addEventListener('resize', this.resizeFn);
         }
