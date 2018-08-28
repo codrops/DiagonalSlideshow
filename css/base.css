@@ -191,6 +191,17 @@ a:focus {
 	position: absolute;
 }
 
+.slideshow__deco {
+	grid-area: slide;
+	background: var(--color-deco);
+	width: 100%;
+	height: 80%;
+	align-self: center;
+	position: relative;
+	margin: -40px 0 0 0;
+	right: -20px;
+}
+
 .nav {
 	position: absolute;
 	background: none;
@@ -394,17 +405,6 @@ a:focus {
 		height: 100vh;
 		grid-template-columns: 27% 27% 27%;
 		grid-column-gap: 9.5%;
-	}
-	.slideshow__deco {
-		grid-area: slide;
-		background: var(--color-deco);
-		width: 100%;
-		height: 80%;
-		margin: auto;
-		align-self: center;
-		position: relative;
-		top: -20px;
-		right: -20px;
 	}
 	.slide {
 		padding: 10vh 0 7vh;
