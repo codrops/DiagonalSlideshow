@@ -447,13 +447,14 @@
                 this.prevSlide.setLeft(this.isContentOpen);
                 this.currentSlide.setCurrent(this.isContentOpen);
 
-                const decorect = this.DOM.deco.getBoundingClientRect();
-                TweenMax.set(this.DOM.deco, {
-                    scaleX: winsize.width/decorect.width,
-                    scaleY: winsize.height/decorect.height,
-                    x: -20,
-                    y: 20
-                });
+                if ( this.isContentOpen ) {
+                    TweenMax.set(this.DOM.deco, {
+                        scaleX: winsize.width/this.DOM.deco.offsetWidth,
+                        scaleY: winsize.height/this.DOM.deco.offsetHeight,
+                        x: -20,
+                        y: 20
+                    });
+                }
             };
             window.addEventListener('resize', this.resizeFn);
         }
@@ -462,11 +463,10 @@
             allowTilt = false;
             this.isContentOpen = true;
             this.DOM.el.classList.add('slideshow--previewopen');
-            const decorect = this.DOM.deco.getBoundingClientRect();
             TweenMax.to(this.DOM.deco, .8, {
                 ease: Power4.easeInOut,
-                scaleX: winsize.width/decorect.width,
-                scaleY: winsize.height/decorect.height,
+                scaleX: winsize.width/this.DOM.deco.offsetWidth,
+                scaleY: winsize.height/this.DOM.deco.offsetHeight,
                 x: -20,
                 y: 20
             });
